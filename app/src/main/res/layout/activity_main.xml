@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:contentDescription="minus_button"
-        android:src="@android:drawable/ic_input_delete"
+        android:src="@drawable/baseline_remove_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/fabPlus" />
 
