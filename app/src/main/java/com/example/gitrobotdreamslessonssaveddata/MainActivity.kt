@@ -8,7 +8,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class MainActivity : AppCompatActivity() {
 
     private var myNumber:Int = 0
-    private var textHolder:String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -17,28 +16,18 @@ class MainActivity : AppCompatActivity() {
         val fabButtonMinus: FloatingActionButton = findViewById(R.id.fabMinus)
 
         myNumber = Myapplication.getApp().getSavedNumber()
-        textHolder = getString(R.string.txt_my_number)
-        textMyNumber.text = buildString {
-            append(textHolder)
-            append(myNumber)
-        }
+        textMyNumber.text = myNumber.toString()
 
         fabButtonPlus.setOnClickListener {
             myNumber++
             Myapplication.getApp().saveNumber(myNumber)
-            textMyNumber.text = buildString {
-                append(textHolder)
-                append(myNumber)
-            }
+            textMyNumber.text = myNumber.toString()
         }
 
         fabButtonMinus.setOnClickListener {
             myNumber--
             Myapplication.getApp().saveNumber(myNumber)
-            textMyNumber.text = buildString {
-                append(textHolder)
-                append(myNumber)
-            }
+            textMyNumber.text = myNumber.toString()
         }
     }
     override fun onPause() {
