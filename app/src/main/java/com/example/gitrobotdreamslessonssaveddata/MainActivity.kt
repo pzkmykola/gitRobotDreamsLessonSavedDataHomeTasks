@@ -31,6 +31,6 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onPause() {
         super.onPause()
-        Myapplication.getApp().saveNumber(viewModel.saveNumber())
+        viewModel.saveNumber()
     }
 }

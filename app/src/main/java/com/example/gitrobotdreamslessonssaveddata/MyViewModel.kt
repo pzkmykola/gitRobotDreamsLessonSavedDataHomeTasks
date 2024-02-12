@@ -12,16 +12,22 @@ class MyViewModel : ViewModel() {
         itemsLiveData.value = number
     }
     fun setIncreasedNumber(){
-        val number = model.getNumber()
-        model.setItem(number+1)
+        var number = model.getNumber()
+        number++
+        model.setItem(number)
         itemsLiveData.value = number
+        Myapplication.getApp().saveNumber(number)
     }
     fun setDecreasedNumber(){
-        val number = model.getNumber()
-        model.setItem(number-1)
-        itemsLiveData.value = number - 1
+        var number = model.getNumber()
+        number --
+        model.setItem(number)
+        itemsLiveData.value = number
+        Myapplication.getApp().saveNumber(number)
     }
     fun saveNumber(): Int {
-        return model.getNumber()
+        val number = model.getNumber()
+        Myapplication.getApp().saveNumber(number)
+        return number
     }
 }
