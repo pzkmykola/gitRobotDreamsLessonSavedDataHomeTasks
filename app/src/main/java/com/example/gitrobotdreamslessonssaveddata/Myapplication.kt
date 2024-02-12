@@ -25,6 +25,4 @@ class Myapplication: Application() {
         private lateinit var instance:Myapplication
         fun getApp() = instance
     }
-
-
 }
