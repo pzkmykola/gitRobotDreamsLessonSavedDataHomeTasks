@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">gitRobotDreamsLessonsSavedData</string>
+    <string name="name_of_shared_prefs">MyNewSharedPrefs</string>
+    <string name="name_of_new_shared_prefs">MyNewSharedPrefsForInt</string>
 </resources>
