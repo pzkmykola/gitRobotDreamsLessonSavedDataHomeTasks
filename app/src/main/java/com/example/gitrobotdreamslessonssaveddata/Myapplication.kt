@@ -6,25 +6,18 @@ import android.content.SharedPreferences
 
 class Myapplication: Application() {
     private lateinit var mySharedPrefs:SharedPreferences
-    private var numberAsString:String = ""
     override fun onCreate() {
         super.onCreate()
         instance = this
-        mySharedPrefs = getSharedPreferences(getString(R.string.name_of_shared_prefs), Context.MODE_PRIVATE)
+        mySharedPrefs = getSharedPreferences(getString(R.string.name_of_new_shared_prefs), Context.MODE_PRIVATE)
     }
 
     fun saveNumber(number:Int){
-        numberAsString = number.toString()
-        mySharedPrefs.edit().putString(prefsKey, numberAsString).apply()
+        mySharedPrefs.edit().putInt(prefsKey, number).apply()
     }
 
-    fun getSavedNumber(): Int{
-        var number = 0
-        numberAsString = mySharedPrefs.getString(prefsKey, "") ?: ""
-        if(numberAsString != "") {
-            number = numberAsString.toInt()
-        }
-        return number
+    fun getSavedNumber(): Int {
+        return mySharedPrefs.getInt(prefsKey, 0) ?: 0
     }
 
     companion object{
