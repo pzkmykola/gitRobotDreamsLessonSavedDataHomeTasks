@@ -10,18 +10,21 @@ class Myapplication: Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
-        mySharedPrefs = getSharedPreferences("MySharedPrefs", Context.MODE_PRIVATE)
+        mySharedPrefs = getSharedPreferences("MyNewSharedPrefs", Context.MODE_PRIVATE)
     }
 
     fun saveData(numberAsString:String){
-        mySharedPrefs.edit().putString("MyNumberToString", numberAsString).apply()
+        mySharedPrefs.edit().putString(prefsKey, numberAsString).apply()
     }
 
     fun getSavedData(): String {
-        return mySharedPrefs.getString("MyNumberToString", "") ?: ""
+        return mySharedPrefs.getString(prefsKey, "") ?: ""
     }
     companion object{
+        private const val prefsKey = "MyNumberString"
         private lateinit var instance:Myapplication
         fun getApp() = instance
     }
+
+
 }
